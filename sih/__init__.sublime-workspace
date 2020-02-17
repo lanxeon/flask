@@ -1,0 +1,210 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"S",
+				"SubmitField"
+			],
+			[
+				"con",
+				"content-section"
+			],
+			[
+				"search",
+				"SearchBar"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/F/flask_project/sihTry/__init__.py",
+		"/F/flask_project/third/__init__.py",
+		"/F/flask_project/third/models.py",
+		"/F/flask_project/runthird.py",
+		"/F/flask_project/third/routes.py",
+		"/F/flask_project/third/forms.py",
+		"/F/flask_project/third/data.db",
+		"/F/gameDB.java",
+		"/F/flask_project/second/second.py",
+		"/F/flask_project/second/templates/home.html",
+		"/F/flask_project/second/templates/lol.html",
+		"/F/flask_project/second/forms.py",
+		"/F/flask_project/second/templates/default.html",
+		"/F/flask_project/second/static/main.css",
+		"/F/flask_project/first/firstapp.py",
+		"/F/flask_project/first/HelloWorld.py",
+		"/F/flask_project/first/HelloWorld.py.txt",
+		"/F/20M_AI_Rubrics_2018.doc",
+		"/F/5_Naive_Bayes.py",
+		"/F/EwKcZSRyEeid1w4CS--8KA_133e1eb0247211e8974a1573ee3a41af_4-Programming-Assignment-4-Materials/ScreenUtils.cs",
+		"/F/_16782e18dab269ed2957330395172a71_4-1-Exercise-20-Solution/Exercise20/Assets/scripts/Driver.cs",
+		"/F/unity c#/_b2a059c8d60e6d3900558f94e97b732d_1-Visual-Studio-Code-Entire-Course/4 1 Unity Code All Lectures/4 1 9 Unity Final Code/GamepadInput/Assets/scripts/Character.cs",
+		"/F/unity c#/_b2a059c8d60e6d3900558f94e97b732d_1-Visual-Studio-Code-Entire-Course/4 1 Unity Code All Lectures/4 1 9 Unity Final Code/GamepadInput/Assets/scripts/ScreenUtils.cs",
+		"/C/Users/bswap/lol2.py",
+		"/F/unity c#/_b2a059c8d60e6d3900558f94e97b732d_1-Visual-Studio-Code-Entire-Course/4 1 Unity Code All Lectures/4 1 7 Unity Final Code/MouseInput/Assets/scripts/ScreenUtils.cs",
+		"/F/unity c#/_b2a059c8d60e6d3900558f94e97b732d_1-Visual-Studio-Code-Entire-Course/4 1 Unity Code All Lectures/4 1 7 Unity Final Code/MouseInput/Assets/scripts/CharacterChanger.cs",
+		"/C/Users/bswap/UnityProjects/Exercise18/Assets/Scripts/MouseJumper.cs",
+		"/F/_5a9ad1d2a04dc3371efa5df5c3a3e8f4_4-1-Exercise-19-Solution/Exercise19/Assets/scripts/MouseButtonProcessor.cs",
+		"/F/unity c#/_b2a059c8d60e6d3900558f94e97b732d_1-Visual-Studio-Code-Entire-Course/4 1 Unity Code All Lectures/4 1 6 Unity Final Code/MouseInput/Assets/scripts/CharacterChanger.cs",
+		"/C/Users/bswap/UnityProjects/ProgrammingAssignment-3/Assets/Scripts/Rock.cs",
+		"/F/_5a4f3db0011887a8fad1fb676617b3c1_4-1-Exercise-18-Solution/Exercise18/Assets/scripts/Jumper.cs",
+		"/F/unity c#/_b2a059c8d60e6d3900558f94e97b732d_1-Visual-Studio-Code-Entire-Course/3 2 Visual Studio Code All Lectures/3 2 6 Unity Final Code/SpawningTeddies/Assets/scripts/TeddyBearSpawner.cs",
+		"/F/unity c#/_b2a059c8d60e6d3900558f94e97b732d_1-Visual-Studio-Code-Entire-Course/3 2 Visual Studio Code All Lectures/3 2 6 Unity Final Code/SpawningTeddies/Assets/scripts/TeddyBear.cs",
+		"/F/_c53f612d5904f302ad5229daeed2a06f_3-Programming-Assignment-3-Materials/Timer.cs"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 39.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "__init__.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 168.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

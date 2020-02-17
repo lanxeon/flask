@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+		<form action='' method='POST'>
+			{{ form.hidden_tag() }}
+			{{ form.usn.label }}:{{ form.usn }}<br/>
+			{{ form.email.label }}:{{ form.email }}<br/>
+			{{ form.pwd.label }}:{{ form.pwd }}<br/>
+			{{ form.repwd.label }}:{{ form.repwd }}<br/>
+			{{ form.submit.label }}:{{ form.submit }}
+		</form>
+</body>
+</html>

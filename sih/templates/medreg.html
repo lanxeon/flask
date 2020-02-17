@@ -1,0 +1,13 @@
+{% extends 'default.html' %}
+{% block content %}
+<form action='/medhistory' method='POST'>
+	{{form.hidden_tag()}}
+	{{form.bgrp}}<br/>
+	{{form.disease1.label}}:{{form.disease1}}<br/>
+	{{form.disease2.label}}:{{form.disease2}}<br/>
+	{{form.disease3.label}}:{{form.disease3}}<br/>
+	{{form.disease4.label}}:{{form.disease4}}<br/>
+	{{form.disease5.label}}:{{form.disease5}}<br/>
+	{{form.submit}}
+</form>
+{% endblock %}

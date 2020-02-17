@@ -1,0 +1,13 @@
+{% extends 'default.html' %}
+{% block content %}
+	{%for d in data %}
+		{{d.name}}
+		<br/>
+		{{d.nose}}
+		<br/>
+		{{d.lip}}
+		<br/>
+		{{d.eye}}
+		<br/>
+	{% endfor %}
+{% endblock content %}
