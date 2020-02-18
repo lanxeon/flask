@@ -1,5 +1,6 @@
 from flask import render_template, url_for, request, redirect, flash
-from unisys import app, lm, bcrypt, db
+from unisys import app, lm, bcrypt, db, socketio
+from flask_socketio import send, emit
 import os
 from unisys.forms import Registration, Login
 from unisys.models import User
@@ -26,14 +27,10 @@ def about():
 def register():
 	form = Registration()
 	if form.validate_on_submit():
-<<<<<<< HEAD
 		hashed_password = bcrypt.generate_password_hash(form.pwd.data).decode('utf-8')
 		user = User(fname = form.fname.data, lname = form.lname.data, usn = form.usn.data, pwd = hashed_password, email = form.email.data)
 		db.session.add(user)
 		db.session.commit()
-=======
-		user = User(fname = form.fname.data, lname = form.lname.data, )
->>>>>>> de1b9990b37a7dadce8688eda307fe531a9889e0
 		flash(f'Registered successfully', 'success')
 		return redirect(url_for('login'))
 
@@ -47,5 +44,21 @@ def login():
 		return redirect(url_for('home'))
 
 	return render_template('login.html', form = form)#make html page called login.html
+
+
+@app.route('/chat')
+def chat():
+	return render_template('chat.html')
+
+
+
+########################################################################################################################
+#####     SOCKET-IO ROUTES    #####
+########################################################################################################################
+
+@socketio.on('message')
+def handle_msg(msg):
+	print('Message: ' + msg)
+	send(msg, broadcast=True)
 
 	

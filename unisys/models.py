@@ -10,7 +10,6 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     fname = db.Column(db.String(20))
     lname = db.Column(db.String(20))
-<<<<<<< HEAD
     usn = db.Column(db.String(20), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
@@ -18,13 +17,4 @@ class User(db.Model, UserMixin):
 
     def __repr__(self):
         return f"User(name:'{self.fname} {self.lname}', email:'{self.email}', usn: '{self.usn}')"
-=======
-    username = db.Column(db.String(20), unique=True, nullable=False)
-    email = db.Column(db.String(120), unique=True, nullable=False)
-    image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
-    password = db.Column(db.String(60), nullable=False)
-
-    def __repr__(self):
-        return f"User(name:'{self.fname} {self.lname}', email:'{self.email}', usn: '{self.username}')"
->>>>>>> de1b9990b37a7dadce8688eda307fe531a9889e0
 #REST I WILL DO LATER
