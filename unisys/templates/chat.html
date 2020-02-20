@@ -10,13 +10,17 @@
     <script type="text/javascript">
     $(document).ready(function() {
 
+        //socketio.emit('user joined', user.usn, namespace = '/private')
         var socket = io();
+        var socket_private = io.connect('/private');
 
+        //regular sockets
+        /*
         socket.on('connect', function() {
             socket.send('User has connected!');
             console.log("NIGggggzzz");
         });
-
+        
         socket.on('message', function(msg) {
             $("#messages").append('<li>'+msg+'</li>');
             console.log('Received message');
@@ -26,12 +30,33 @@
             socket.send($('#myMessage').val());
             $('#myMessage').val('');
         });
+        */
+        
+        //private sockets
+
+        socket_private.on('user logged in', (usn)=>{
+            console.log('user with username '+usn+' has connected on client side');
+        });
+
+        socket_private.on('new private message', function(msg) {
+            $("#messages").append('<li>'+msg+'</li>');
+            console.log('Received message');
+        });
+
+        $('#sendbutton').on('click', function() {
+            var recipient = $('#send_to_username').val();
+            var message_to_send = $('#myMessage').val()
+            socket_private.emit('private message', {'username' : recipient, 'message' : message_to_send});
+            $('#myMessage').val('');
+        });
 
     });
     </script>
 <!-- START MANIPULATING SHIT FROM HERE ON OUT FOR THE LAYOUT. IF YOU ADD ANY ID(FOR ADDING BEHAVIOUR) MENTION THEM AT THE END WITH A COMMENT -->
+
 <ul id="messages"></ul>
-<input type="text" id="myMessage">
+Send To: <input type="text" id="send_to_username">
+Send Message: <input type="text" id="myMessage">
 <button id="sendbutton">Send</button>
 </body>
 </html>

@@ -49,18 +49,29 @@ def login():
 		user = User.query.filter_by(email = form.email.data).first()
 		if user and bcrypt.check_password_hash(user.pwd , form.pwd.data):
 			login_user(user, remember=form.remember.data)
-			socketio.emit('user joined', user.usn, namespace = '/private')
+			#socketio.send('connect', user.usn, namespace = '/private')
 			flash(f'Registered successfully', 'success')
 			next_page = request.args.get('next')
-			return redirect(next_page) if next_page else redirect(url_for('home')) 
+			return redirect(next_page) if next_page else redirect(url_for('home'))
 
-	return render_template('login.html', form = form)#make html page called login.html
+	return render_template('login.html', form = form)
+
+@app.route('/logout')
+def logout():
+	logout_user()
+	return redirect(url_for('home'))
 
 
 @app.route('/chat')
 @login_required
 def chat():
 	return render_template('chat.html')
+
+
+@app.route('/account')
+@login_required
+def account():
+	return render_template('account.html')
 
 
 
@@ -75,11 +86,22 @@ def handle_msg(msg):
 
 
 @socketio.on('private message', namespace = '/private')
-def handle_private_msg(msg):
-	print('Message from '+'#'+'to'+'#'+':'+msg)
-
-
+def handle_private_msg(payload):
+	recipient_session_id = users[payload['username']]
+	message = payload['message']
+	emit('new private message', message, room=recipient_session_id)
+	
+'''
 @socketio.on('user joined', namespace = '/private')
-def handle_user_joined(usn):
-	users[usn] = request.sid
-	print(usn+' has logged in to the server')
+def handle_user_joined(sock_usn):
+	users[sock_usn] = request.sid
+	print(sock_usn+' has logged in to the server')
+'''
+
+@socketio.on('connect', namespace = '/private')
+def handle_connect():
+	if current_user.is_authenticated:
+		username = current_user.usn
+		emit('user logged in', username, namespace = '/private')
+		users[username] = request.sid
+		print(username+' has logged in to the server with session id '+users[username])
