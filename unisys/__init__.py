@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask_socketio import SocketIO
+from flask_session import Session
 import os
 
 IMAGE_FOLDER = os.path.join('static', 'images')
@@ -15,6 +16,7 @@ app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///wtf.db'
 db=SQLAlchemy(app)
 bcrypt=Bcrypt(app)
 lm=LoginManager(app)
+Session(app)
 socketio = SocketIO(app)
 
 lm.login_view='login'

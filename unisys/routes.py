@@ -1,10 +1,12 @@
-from flask import render_template, url_for, request, redirect, flash
+from flask import render_template, url_for, request, redirect, flash, request, session
 from unisys import app, lm, bcrypt, db, socketio
+from flask_login import login_user, current_user, logout_user, login_required
 from flask_socketio import send, emit
 import os
 from unisys.forms import Registration, Login
 from unisys.models import User
 
+users = {}
 
 @app.route('/')
 @app.route('/home')
@@ -25,6 +27,8 @@ def about():
 
 @app.route('/register', methods = ['GET', 'POST'])
 def register():
+	if current_user.is_authenticated:
+		return redirect(url_for('home'))
 	form = Registration()
 	if form.validate_on_submit():
 		hashed_password = bcrypt.generate_password_hash(form.pwd.data).decode('utf-8')
@@ -38,15 +42,23 @@ def register():
 
 @app.route('/login', methods = ['GET', 'POST'])
 def login():
+	if current_user.is_authenticated:
+		return redirect(url_for('home'))
 	form = Login()
 	if form.validate_on_submit():
-		flash(f'Registered successfully', 'success')
-		return redirect(url_for('home'))
+		user = User.query.filter_by(email = form.email.data).first()
+		if user and bcrypt.check_password_hash(user.pwd , form.pwd.data):
+			login_user(user, remember=form.remember.data)
+			socketio.emit('user joined', user.usn, namespace = '/private')
+			flash(f'Registered successfully', 'success')
+			next_page = request.args.get('next')
+			return redirect(next_page) if next_page else redirect(url_for('home')) 
 
 	return render_template('login.html', form = form)#make html page called login.html
 
 
 @app.route('/chat')
+@login_required
 def chat():
 	return render_template('chat.html')
 
@@ -61,4 +73,13 @@ def handle_msg(msg):
 	print('Message: ' + msg)
 	send(msg, broadcast=True)
 
-	
+
+@socketio.on('private message', namespace = '/private')
+def handle_private_msg(msg):
+	print('Message from '+'#'+'to'+'#'+':'+msg)
+
+
+@socketio.on('user joined', namespace = '/private')
+def handle_user_joined(usn):
+	users[usn] = request.sid
+	print(usn+' has logged in to the server')
